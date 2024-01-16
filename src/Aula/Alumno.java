@@ -2,9 +2,11 @@ package Aula;
 
 public class Alumno {
 
+	//Atributos
 	private String nombre;
 	private int edad;
 	
+	//Constructor parametrizado
 	public Alumno(String nombre, int edad) {
 		this.nombre=nombre;
 		this.edad=edad;
