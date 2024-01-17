@@ -1,39 +1,33 @@
 package Aula;
 
+import java.util.Arrays;
+
 public class Aula {
 
-	//Atributos
-	private Alumno alumno[];
-	private int capacidad;
-	private int contadorAlumnos=0;
-	
-	//Constructor con la capacidad e inicializamos la lista de alumnos
+	// Atributos
+	private Alumno[] alumnos;
+	private int cuantos;
+
+	// Constructor con la capacidad e inicializamos la lista de alumnos
 	public Aula(int capacidad) {
 
-		this.capacidad = capacidad;
-		alumno = new Alumno[capacidad];
+		this.cuantos = 0;
+		alumnos = new Alumno[capacidad];
 	}
 
-	/*
-	 * Creo el metodo añadir alumno.Dejamos añadir alumnos siempre y cuando el numero
-	 * de alumnos añadidos no supere la capacidad maxima.
-	 */
-	public void anadirAlummno(Alumno nuevoAlumno) {
-		if(contadorAlumnos<=capacidad) {
-			alumno[contadorAlumnos]=nuevoAlumno;
-			contadorAlumnos++;
+	public void add(Alumno nuevoAlumno) {
+
+		if (cuantos < alumnos.length) {
+			alumnos[cuantos] = nuevoAlumno;
+			cuantos++;
 		}
+		// Esto es lo mismo que: System.out.println(toString);
+		System.out.println(this);
 	}
-	/*
-	 * Devuelve la informacion de todos los alumnos.
-	 */
+
+	@Override
 	public String toString() {
-		String alumnos=" ";
-		
-		//Recorro todos los alummno de la clase para poder mostrar su informacion
-		for (int posicion=0;posicion<alumno.length;posicion++) {
-			alumnos= alumnos+"\n"+alumno[posicion].toString();
-		}
-		return alumnos;
+		return "Aula [\nalumnos=" + Arrays.toString(alumnos) + "\ncuantos=" + cuantos + "]\n";
 	}
+
 }
